@@ -96,10 +96,6 @@ add_executable(stereo_euroc
 Examples/Stereo/stereo_euroc.cc)
 target_link_libraries(stereo_euroc ${PROJECT_NAME})
 
-add_executable(stereo_zed
-Examples/ZED/stereo_zed.cc)
-target_link_libraries(stereo_zed ${PROJECT_NAME})
-
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Monocular)
 
 add_executable(mono_tum
@@ -114,3 +110,14 @@ add_executable(mono_euroc
 Examples/Monocular/mono_euroc.cc)
 target_link_libraries(mono_euroc ${PROJECT_NAME})
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/ZED)
+
+add_executable(stereo_zed
+Examples/ZED/stereo_zed.cc)
+target_link_libraries(stereo_zed ${PROJECT_NAME})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Mas)
+
+add_executable(mas
+Examples/Mas/mas.cc)
+target_link_libraries(mas ${PROJECT_NAME})
