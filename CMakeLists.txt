@@ -121,3 +121,9 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/Mas)
 add_executable(mas
 Examples/Mas/mas.cc)
 target_link_libraries(mas ${PROJECT_NAME})
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Examples/MasStereo)
+
+add_executable(mas_stereo
+Examples/MasStereo/mas_stereo.cc)
+target_link_libraries(mas_stereo ${PROJECT_NAME})

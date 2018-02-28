@@ -13,6 +13,7 @@ Examples/Stereo/stereo_euroc
 Examples/Stereo/stereo_kitti
 Examples/ZED/stereo_zed
 Examples/Mas/mas
+Examples/MasStereo/mas_stereo
 KeyFrameTrajectory.txt
 Thirdparty/DBoW2/build/
 Thirdparty/DBoW2/lib/
