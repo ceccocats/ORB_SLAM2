@@ -9,7 +9,8 @@
 #include<opencv2/core/core.hpp>
 
 #include<System.h>
-
+#include <fstream>
+    
 using namespace std;
 using namespace cv; 
 
@@ -22,20 +23,31 @@ int main(int argc, char **argv)
     cout << endl << "-------" << endl;
     cout << "Start processing sequence ..." << endl;
 
+    std::ifstream timestamps(argv[4]);
+
     //VideoCapture cap(0);  // camera
     VideoCapture cap(argv[3]);
 
     // Main loop
-    Mat frame;
+    Mat orig;
     while(cap.isOpened()) {
 
-        cap >> frame;
-        if(frame.empty()) {
+        cap >> orig;
+        if(orig.empty()) {
             std::cout<<"read fail!!\n";        
             continue;
         }
 
-        double tframe =  std::chrono::system_clock::now().time_since_epoch().count();        
+        Mat frame;
+        resize(orig, frame, Size(), 0.5, 0.5);
+        std::cout<<frame.size()<<"\n";
+
+        int i;       
+        double tframe;
+        //tframe =  std::chrono::system_clock::now().time_since_epoch().count(); 
+        timestamps >> i >> tframe;
+
+        std::cout<<i<<" "<<tframe<<"\n";
 
         // Pass the image to the SLAM system
         SLAM.TrackMonocular(frame, tframe);
